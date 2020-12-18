@@ -230,6 +230,12 @@ You will see the new Chart version picked up by Flux automatically.
 FLux itself should be deployed from a git repository to respect GitOps principles.
 To achieve this, Flux provides a `boostrap` command.
 
+Let's delete the "dev-mode" Flux from the cluster and install it in a more "production-ready" workflow.
+
+```
+flux uninstall --crds
+```
+
 - Check you cluster :
 
 ```
