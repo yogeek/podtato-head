@@ -34,6 +34,7 @@ currently supported:
 * [Helm-based operator deployment](/delivery/podtato-operator/README.md)
 * [CNAB with Porter air-gapped deployment](/delivery/CNABwithPorter/README.md)
 * [GitOps-based deployment using KubeVella](/delivery/KuubeVela/README.md)
+* [GitOps-based deployment using Gimlet CLI](/delivery/gimlet/README.md)
 
 Use cases supported going foward:
 
