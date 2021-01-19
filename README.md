@@ -9,7 +9,7 @@ application delivery. It - for sure - will grow over time. Right now you get the
 
 * A single file go server that displays a "Pod-Tato-Head" image with the version
 * A multi-stage build docker file to build a container
-* A manifest ot create a Kubernetes service and deployment.
+* A manifest to create a Kubernetes service and deployment.
 * A helm chart for the service and the deployment.
 * Three container images showing different versions
 
@@ -33,7 +33,7 @@ currently supported:
 * [Multi-Stage delivery with Keptn](/delivery/keptn/README.md)
 * [Helm-based operator deployment](/delivery/podtato-operator/README.md)
 * [CNAB with Porter air-gapped deployment](/delivery/CNABwithPorter/README.md)
-* [GitOps-based deployment using KubeVella](/delivery/KuubeVela/README.md)
+* [GitOps-based deployment using KubeVella](/delivery/KubeVela/README.md)
 * [GitOps-based deployment using Gimlet CLI](/delivery/gimlet/README.md)
 
 Use cases supported going foward:
