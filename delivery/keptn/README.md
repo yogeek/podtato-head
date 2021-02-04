@@ -9,7 +9,12 @@ _NOTE : you have to be into `delivery/keptn` folder to run the commands below._
 
 For your convenience, commands are listed below :
 
-Install Istio (already done)
+Install Istio :
+
+```
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.8.2 sh -
+./istio-1.8.2/bin/istioctl install
+```
 
 Install Keptn CLI :
 
@@ -51,7 +56,7 @@ All the keptn configuration is in the `shipyard.yaml` file.
 
 ```
 ./initProject.sh create-project
-````
+```
 
 You can see a new project has been created in Keptn UI.
 You have also see the 3 environments declared in the `shipyard.yaml` file.
@@ -60,7 +65,7 @@ You have also see the 3 environments declared in the `shipyard.yaml` file.
 
 ```
 ./initProject.sh onboard-service
-````
+```
 
 You can see a service has been onboarded in Keptn UI.
 
@@ -68,19 +73,56 @@ You can see a service has been onboarded in Keptn UI.
 
 ```
 ./initProject.sh first-deploy-service
-````
+```
 
 ### Upgrade Service (new-artifact)
 
 ```
 ./initProject.sh upgrade-service
-````
-
-Click on the service to see the different deployment stages.
-You can see a manual approval is needed : accept to finish the promotion.
-
-## Uninstall Keptn
-
 ```
-keptn uninstall
+
+### Install Prometheus service
+
+Installing Keptn Prometheus service:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/prometheus-service/release-0.3.6/deploy/service.yaml
+```
+
+Set up the Prometheus Alerting Manager rules:
+
+```bash
+keptn configure monitoring prometheus --project=pod-tato-head --service=helloservice
+```
+
+### Install Prometheus sli service
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/keptn-contrib/prometheus-sli-service/release-0.2.2/deploy/service.yaml
+```
+
+### Adding quality gates
+
+Adding SLIs and SLOs:
+
+```bash
+./initProject.sh add-quality-gates
+```
+
+Adding JMeter load tests:
+
+```bash
+./initProject.sh add-jmeter-tests
+```
+
+Deploy service to check quality-gates:
+
+```bash
+./initProject.sh deploy-service
+```
+
+Deploy a slow-build that should fail the quality-gates test:
+
+```bash
+./initProject.sh slow-build
 ```
